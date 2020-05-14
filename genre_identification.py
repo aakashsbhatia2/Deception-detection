@@ -2,6 +2,8 @@ from collections import Counter
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import classification_report
 import nltk
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
 from sklearn import svm
 import pandas as pd
 
@@ -61,7 +63,7 @@ def cross_validation(data):
         fold_train = data[data["fold"] != fold]
         fold_test = data[data["fold"] == fold]
         train_features, train_labels, test_features, test_labels = pos_representation(fold_train, fold_test)
-        lin_clf = svm.LinearSVC(max_iter=10000)
+        lin_clf = svm.LinearSVC(max_iter=12000, dual = False)
         lin_clf.fit(train_features, train_labels)
         y_pred = lin_clf.predict(test_features)
         score = lin_clf.score(test_features, test_labels)
