@@ -34,6 +34,7 @@ def main():
         print('Accuracy score: ', accuracy_score(y_test, predictions))
         print('Precision score: ', precision_score(y_test, predictions))
         print('Recall score: ', recall_score(y_test, predictions))
+        print('Recall score: ', f1_score(y_test, predictions))
         print('************')
 
 if __name__ == "__main__":
