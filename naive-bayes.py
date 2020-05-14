@@ -23,7 +23,7 @@ def naive_bayes(X_train_cv, y_train, X_test_cv):
     return predictions
 
 def main():
-    ngram_types = [["Unigram" , (1,1)], ["Bigram", (2,2)], ["Trigram", (3,3)]]
+    ngram_types = [["Unigram" , (1,1)], ["Bigram", (1,2)], ["Trigram", (2,3)]]
     df = pd.read_csv("final_data.csv")
     X_train, X_test, y_train, y_test = create_split(df)
     for ngram in ngram_types:
