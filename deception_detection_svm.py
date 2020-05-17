@@ -40,7 +40,6 @@ def cross_validation(data, pipeline):
     for fold in folds:
         fold_train = data[data["fold"] != fold]
         fold_test = data[data["fold"] == fold]
-        # vectorizer = CountVectorizer(ngram_range = representation_map[representation])
         train_features, train_labels, test_features, test_labels = ngram_representation(fold_train, fold_test, pipeline)
         lin_clf = svm.LinearSVC()
         lin_clf.fit(train_features, train_labels)
